@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 /**
  * Created by Вершицкий on 28.04.2015.
  */
-public class EndlessScrollRecyclListener extends RecyclerView.OnScrollListener {
+public abstract class EndlessScrollRecyclListener extends RecyclerView.OnScrollListener {
     // The total number of items in the dataset after the last load
     private int previousTotalItemCount = 0;
     private boolean loading = true;
@@ -14,11 +14,7 @@ public class EndlessScrollRecyclListener extends RecyclerView.OnScrollListener {
     int firstVisibleItem, visibleItemCount, totalItemCount;
     private int startingPageIndex = 0;
     private int currentPage = 0;
-    private ActionListener listener;
 
-    EndlessScrollRecyclListener(ActionListener listener){
-        this.listener = listener;
-    }
     @Override
     public void onScrolled(RecyclerView mRecyclerView, int dx, int dy)
     {
@@ -61,15 +57,12 @@ public class EndlessScrollRecyclListener extends RecyclerView.OnScrollListener {
         if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem +
                 visibleThreshold))
         {
-            listener.onLoadMore(currentPage + 1, totalItemCount);
+            onLoadMore(currentPage + 1, totalItemCount);
             loading = true;
         }
     }
 
     // Defines the process `for actually loading more data based on page
+    public abstract void onLoadMore(int page, int totalItemsCount);
 
-    public interface ActionListener{
-        public void onLoadMore(int page, int totalItemsCount);
-        public void onMoved(int distance);
-    }
 }

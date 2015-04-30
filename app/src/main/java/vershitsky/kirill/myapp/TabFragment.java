@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 import vershitsky.kirill.myapp.SaveData.DBConnection;
 
-public class TabFragment extends Fragment implements EndlessScrollRecyclListener.ActionListener {
+public class TabFragment extends Fragment {
     private AppUser appUser;
 
     private RecyclerView mRecyclerView;
@@ -79,7 +79,7 @@ public class TabFragment extends Fragment implements EndlessScrollRecyclListener
         mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Log.d("USERS")users.get(position)
+                Log.d("ON_CLICK",users.get(position).toString());
             }
         }));
         dbConnection = new DBConnection(getActivity());
