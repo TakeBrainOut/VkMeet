@@ -48,7 +48,7 @@
             />
     </RelativeLayout>
     <fragment
-        android:name="vershitsky.kirill.myapp.vk.UserInfFragment"
+        android:name="vershitsky.kirill.myapp.UserInfFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/userInfoFragment"/>

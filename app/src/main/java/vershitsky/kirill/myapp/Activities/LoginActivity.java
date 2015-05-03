@@ -1,19 +1,9 @@
 package vershitsky.kirill.myapp.Activities;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.FragmentTransaction;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Handler;
 import android.os.ResultReceiver;
 import android.support.v4.app.FragmentManager;
@@ -22,24 +12,20 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
-import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
-import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
-import android.location.LocationListener;
 import android.widget.Toast;
 
 import com.vk.sdk.VKAccessToken;
@@ -54,17 +40,17 @@ import com.vk.sdk.api.VKParameters;
 import com.vk.sdk.api.VKRequest;
 import com.vk.sdk.api.VKResponse;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import vershitsky.kirill.myapp.AppUser;
 import vershitsky.kirill.myapp.Constants;
 import vershitsky.kirill.myapp.FetchAddressIntentService;
+import vershitsky.kirill.myapp.MainActivity;
 import vershitsky.kirill.myapp.R;
 import vershitsky.kirill.myapp.SaveData.DBConnection;
 import vershitsky.kirill.myapp.SaveData.VolleySingleton;
-import vershitsky.kirill.myapp.vk.UserInfFragment;
+import vershitsky.kirill.myapp.UserInfFragment;
 
 
 public class LoginActivity extends ActionBarActivity implements ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {

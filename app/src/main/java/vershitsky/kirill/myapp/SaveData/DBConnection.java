@@ -29,7 +29,7 @@ import vershitsky.kirill.myapp.Constants;
 public class DBConnection {
     private Context context;
     private RequestQueue mRequestQueu;
-    public static final String DBUrl = "http://vkmeet.iriscouch.com/app_users/";
+    public static final String DBUrl = "https://vkmeet.iriscouch.com/app_users/";
     public static final String TAG = "COUCH_DB_CONNECTION";
     public static final class Views{
         public static final String BY_FULL_LOCATION  = "http://vkmeet.iriscouch.com/app_users/_design/_views/_view/by_full_location_sex";
@@ -51,6 +51,7 @@ public class DBConnection {
                 @Override
                 public void onResponse(JSONObject response) {
                     final AppUser user = new AppUser();
+                    Log.d("DBRESPONSE", response.toString());
                     user.setFullFromJson(response);
                     loadPhoto(user.getPhotoURL(), new ResponseListener() {
                         @Override
@@ -135,7 +136,20 @@ public class DBConnection {
         });
         mRequestQueu.add(jsReq);
     }
-
+    public void POST(String URL,JSONObject jsonObject, final ResponseListener listener) {
+        JsonObjectRequest jsReq = new JsonObjectRequest(Request.Method.POST, URL, jsonObject, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                listener.onResponse(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                listener.onError(error);
+            }
+        });
+        mRequestQueu.add(jsReq);
+    }
     public void logIn(final AppUser userFromVK) {
         JsonObjectRequest jsReq = new JsonObjectRequest(Request.Method.GET, DBUrl + userFromVK.getId() + "?latest=true", null, new Response.Listener<JSONObject>() {
             @Override

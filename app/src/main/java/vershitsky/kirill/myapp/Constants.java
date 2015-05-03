@@ -2,6 +2,10 @@ package vershitsky.kirill.myapp;
 
 import android.text.TextUtils;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
@@ -26,15 +30,19 @@ public final class Constants {
     public static final String APP_USER_KEY = "APP_USER_KEY";
     public static final String LOCALITY_EXTRA = "LOCALITY_EXTRA";
     public static final String USER_PHOTO = "USER_PHOTO";
-    public static final String SEARCH_TYPE_EXTRA  = "SEARCH_TYPE_EXTRA";
     public static final String SEARCH_VIEW_URL_EXTRA = "SEARCH_VIEW_URL_EXTRA";
-
+    public static final String JS_KEY_EXTRA = "JS_KEY_EXTRA";
     public static final String COUNTRY = "COUNTRY";
     public static final String REGION = "REGION";
     public static final String LOCALITY = "LOCALITY";
-    public static final String[] SEARCH_TYPE = {COUNTRY, REGION, LOCALITY};
+    public static final String SEARCH_TYPE_EXTRA = "SEARCH_TYPE_EXTRA";
+    public static final String SEARCH_SEX_EXTRA = "SEARCH_SEX_EXTRA";
 
+    public static final String[] SEARCH_TYPE = {COUNTRY, REGION, LOCALITY};
+    public static final String SEX_MALE = "2";
+    public static final String SEX_FEMALE = "1";
     public static final String UNKNOWN = "UNKNOWN";
+
 
     public static String viewUrlRequest(String viewUrl, String... params){
         String fullViewURL = "";
@@ -45,6 +53,7 @@ public final class Constants {
         }
         return fullViewURL;
     }
+
 
     public static String[] getParamsInCommas(String[] params) {
         for (int i = 0; i < params.length; i++)

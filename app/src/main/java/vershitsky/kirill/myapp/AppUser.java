@@ -30,7 +30,6 @@ public class AppUser implements Parcelable {
     private String photoURL;
     private Bitmap userPhoto;
 
-
     //location
     private String countryName;
     private String adminArea;
@@ -110,6 +109,10 @@ public class AppUser implements Parcelable {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getSex() {
+        return sex;
     }
 
     public DateTime setDateBirthday(String stringDateBirthday) {

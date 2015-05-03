@@ -25,7 +25,7 @@ public class FetchAddressIntentService extends IntentService {
 
     /**
      * This constructor is required, and calls the super IntentService(String)
-     * constructor with the name for a worker thread.
+     * constructor with ethe name for a worker thread.
      */
     public FetchAddressIntentService() {
         // Use the TAG to name the worker thread.

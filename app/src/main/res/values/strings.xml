@@ -23,5 +23,12 @@
     <string name="no_internet_connection_title">No internet connection!</string>
     <string name="no_internet_connection_text">Please, connect to the internet</string>
     <string name="ok">Ok</string>
-
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="drawer_item_update_loc"> Update user location</string>
+    <string name="drawer_item_seach_set">Search settings</string>
+    <string name="drawer_item_male">Male</string>
+    <string name="drawer_item_female">Female</string>
+    <string name="drawer_item_help">Help</string>
+    <string name="drawer_item_feedback">Feedback</string>
+    <string name="drawer_item_search">Search</string>
 </resources>

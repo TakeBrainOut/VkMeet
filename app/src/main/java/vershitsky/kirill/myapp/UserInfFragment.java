@@ -1,12 +1,9 @@
-package vershitsky.kirill.myapp.vk;
+package vershitsky.kirill.myapp;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.location.Address;
 import android.location.Location;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.os.Handler;
@@ -38,10 +35,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import vershitsky.kirill.myapp.AppUser;
-import vershitsky.kirill.myapp.Constants;
-import vershitsky.kirill.myapp.FetchAddressIntentService;
-import vershitsky.kirill.myapp.R;
 import vershitsky.kirill.myapp.SaveData.DBConnection;
 
 /**

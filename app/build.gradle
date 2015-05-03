@@ -22,12 +22,16 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:21.0.+'
     compile 'com.android.support:recyclerview-v7:21.+'
-    compile 'com.android.support:cardview-v7:21.0.+'
+    compile 'com.android.support:appcompat-v7:21.+'
+    compile('com.mikepenz.materialdrawer:library:2.9.1@aar') {
+        transitive = true
+    }
+    compile 'com.android.support:cardview-v7:21.+'
     compile 'com.vk:androidsdk:+'
     compile 'com.google.android.gms:play-services:6.5.87'
     compile 'de.hdodenhof:circleimageview:1.2.2'
     compile 'joda-time:joda-time:2.7'
     compile project(':volley')
+
 }
